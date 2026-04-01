@@ -501,11 +501,11 @@ def create_handoff(
 
     Args:
         schema_version: Schema 版本
-        session_id: 会话 ID
+        session_id: 会话 ID（将存入 payload）
         from_skill: 来源 Skill
         to_skill: 目标 Skill
         handoff_type: 交接包类型
-        confidence_score: 置信度分数
+        confidence_score: 置信度分数（将存入 payload）
         payload: 数据负载
 
     Returns:
@@ -519,14 +519,19 @@ def create_handoff(
         ...     payload={'intent_type': 'build_custom'}
         ... )
     """
+    # 将 session_id 和 confidence_score 放入 payload
+    final_payload = payload or {}
+    if session_id:
+        final_payload['session_id'] = session_id
+    if confidence_score is not None:
+        final_payload['confidence_score'] = confidence_score
+
     return HandoffPackage(
         schema_version=schema_version,
-        session_id=session_id,
         from_skill=from_skill,
         to_skill=to_skill,
         handoff_type=handoff_type,
-        confidence_score=confidence_score,
-        payload=payload or {}
+        payload=final_payload
     )
 
 
