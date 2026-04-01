@@ -1,0 +1,47 @@
+# QCM项目配置示例
+
+name: "用户管理API"
+description: "RESTful API服务,提供用户注册、登录、信息管理功能"
+project_type: "生产系统"
+scale: "中型"
+
+tech_stack:
+  - "Python 3.9"
+  - "FastAPI"
+  - "PostgreSQL"
+  - "JWT"
+
+roles:
+  - "项目架构师"
+  - "代码工程师"
+  - "质量保障师"
+  - "文档工程师"
+  - "安全专家"
+
+quality_standards:
+  functionality: "所有API功能正常"
+  code_quality: "测试覆盖≥85%"
+  documentation: "完整API文档+部署文档"
+  security: "无安全漏洞"
+
+workflow_stages:
+  - "需求确认与方案设计"
+  - "核心开发与实验"
+  - "完善与优化"
+  - "文档与论文撰写"
+  - "验收与交付"
+
+documentation_requirements:
+  - "README.md"
+  - "API文档"
+  - "部署文档"
+  - "测试报告"
+
+custom_settings:
+  performance_target:
+    response_time: "<500ms"
+    throughput: ">100 QPS"
+  
+  deployment:
+    containerized: true
+    ci_cd: "GitHub Actions"

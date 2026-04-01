@@ -1,0 +1,16 @@
+# QCM工具系统依赖列表
+
+# 核心依赖
+pyyaml>=6.0
+pydantic>=2.0
+
+# CLI 依赖（pip install qcm-ai-devtools[cli]）
+# typer>=0.9.0
+# rich>=13.0.0
+
+# 开发依赖
+pytest>=7.0
+pytest-cov>=4.0
+pylint>=2.15
+bandit>=1.7
+radon>=5.1
