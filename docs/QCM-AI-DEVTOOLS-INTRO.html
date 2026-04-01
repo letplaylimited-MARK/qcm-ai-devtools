@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QCM-AI-DevTools - 产品介绍</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7c3aed;
+            --success: #059669;
+            --warning: #d97706;
+            --dark: #0f172a;
+            --gray-600: #4b5563;
+            --gray-400: #9ca3af;
+            --white: #ffffff;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--dark);
+            color: var(--white);
+            line-height: 1.6;
+        }
+        
+        .page {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 40px 0 60px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+        
+        .title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--gray-400);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+        
+        .tagline {
+            display: inline-block;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            padding: 48px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #fff, var(--gray-400));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--gray-400);
+            margin-top: 4px;
+        }
+        
+        /* Section */
+        .section {
+            padding: 60px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        /* Value Grid */
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        
+        .value-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 28px;
+            transition: all 0.3s;
+        }
+        
+        .value-card:hover {
+            background: rgba(255,255,255,0.06);
+            transform: translateY(-4px);
+        }
+        
+        .value-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+        
+        .value-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .value-desc {
+            font-size: 0.9rem;
+            color: var(--gray-400);
+        }
+        
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 20px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 12px;
+        }
+        
+        .feature-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+        
+        .feature-icon.blue { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+        .feature-icon.purple { background: linear-gradient(135deg, #7c3aed, #6d28d9); }
+        .feature-icon.green { background: linear-gradient(135deg, #059669, #047857); }
+        .feature-icon.orange { background: linear-gradient(135deg, #d97706, #b45309); }
+        
+        .feature-content h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .feature-content p {
+            font-size: 0.85rem;
+            color: var(--gray-400);
+        }
+        
+        /* Skills */
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+        
+        .skill {
+            text-align: center;
+            padding: 32px 20px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+        }
+        
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+        
+        .skill-name {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .skill-role {
+            font-size: 0.8rem;
+            color: var(--gray-400);
+        }
+        
+        /* Tech Stack */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .tech-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        /* CTA */
+        .cta {
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        .cta-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+        
+        .cta-desc {
+            color: var(--gray-400);
+            margin-bottom: 32px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+        }
+        
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.15);
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 32px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--gray-400);
+            font-size: 0.875rem;
+        }
+        
+        @media (max-width: 768px) {
+            .page { padding: 40px 20px; }
+            .title { font-size: 2rem; }
+            .stats { flex-wrap: wrap; gap: 32px; }
+            .value-grid { grid-template-columns: 1fr; }
+            .features { grid-template-columns: 1fr; }
+            .skills { grid-template-columns: repeat(2, 1fr); }
+            .cta-buttons { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">🚀</div>
+            <h1 class="title">QCM-AI-DevTools</h1>
+            <p class="subtitle">
+                ai-skill-system 的代码化执行引擎<br>
+                实现"意图识别 → 技术选型 → 执行规划 → 验收决策"全流程自动化
+            </p>
+            <div class="tagline">⚡ 生产就绪 · 开箱即用</div>
+        </header>
+        
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-value">47+</div>
+                <div class="stat-label">Python 模块</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">291+</div>
+                <div class="stat-label">测试用例</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">6+</div>
+                <div class="stat-label">AI 提供者</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">3</div>
+                <div class="stat-label">数据库支持</div>
+            </div>
+        </div>
+        
+        <!-- Value Proposition -->
+        <section class="section">
+            <h2 class="section-title">💎 核心价值</h2>
+            <div class="value-grid">
+                <div class="value-card">
+                    <div class="value-icon">⚡</div>
+                    <div class="value-title">效率提升 10x</div>
+                    <div class="value-desc">项目初始化速度从小时级降至分钟级，自动生成配置和模板</div>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🎯</div>
+                    <div class="value-title">决策准确率 85%+</div>
+                    <div class="value-desc">七维度评估模型，量化技术选型，降低决策风险</div>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🔗</div>
+                    <div class="value-title">100% 系统集成</div>
+                    <div class="value-desc">与 ai-skill-system YAML 格式无缝对接，标准化交接</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Skills -->
+        <section class="section">
+            <h2 class="section-title">🧩 四层 Skills 决策体系</h2>
+            <div class="skills">
+                <div class="skill">
+                    <div class="skill-icon">🧭</div>
+                    <div class="skill-name">Navigator</div>
+                    <div class="skill-role">意图识别</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-icon">🔍</div>
+                    <div class="skill-name">Scout</div>
+                    <div class="skill-role">技术选型</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-icon">📋</div>
+                    <div class="skill-name">Planner</div>
+                    <div class="skill-role">执行规划</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-icon">✅</div>
+                    <div class="skill-name">Validator</div>
+                    <div class="skill-role">验收决策</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Features -->
+        <section class="section">
+            <h2 class="section-title">✨ 核心特性</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon blue">🐘</div>
+                    <div class="feature-content">
+                        <h4>多数据库统一接口</h4>
+                        <p>PostgreSQL、MySQL、SQLite 三种数据库，一套 API 全部搞定</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon purple">🤖</div>
+                    <div class="feature-content">
+                        <h4>多 AI 模型支持</h4>
+                        <p>OpenAI、Claude、DeepSeek、Gemini、Ollama 自由切换</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon green">📦</div>
+                    <div class="feature-content">
+                        <h4>标准化交接包</h4>
+                        <p>YAML 格式交接包，Skill 间信息无损传递</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon orange">🔄</div>
+                    <div class="feature-content">
+                        <h4>OpenCode 兼容</h4>
+                        <p>完美支持 OpenCode 多模型切换，供应商中立</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Tech Stack -->
+        <section class="section">
+            <h2 class="section-title">🛠️ 技术栈</h2>
+            <div class="tech-stack">
+                <div class="tech-badge">🐍 Python 3.7+</div>
+                <div class="tech-badge">🐘 PostgreSQL</div>
+                <div class="tech-badge">🐬 MySQL</div>
+                <div class="tech-badge">📁 SQLite</div>
+                <div class="tech-badge">🟢 OpenAI</div>
+                <div class="tech-badge">🟣 Anthropic</div>
+                <div class="tech-badge">🔵 DeepSeek</div>
+                <div class="tech-badge">🟠 Gemini</div>
+                <div class="tech-badge">🟢 Ollama</div>
+                <div class="tech-badge">🔄 OpenCode</div>
+                <div class="tech-badge">📄 YAML</div>
+                <div class="tech-badge">✅ 291+ Tests</div>
+            </div>
+        </section>
+        
+        <!-- CTA -->
+        <section class="cta">
+            <h2 class="cta-title">立即开始使用</h2>
+            <p class="cta-desc">5 分钟快速上手，开启高效开发之旅</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/letplaylimited-MARK/qcm-ai-devtools" class="btn btn-primary" target="_blank">
+                    📦 GitHub 仓库
+                </a>
+                <a href="QCM-AI-DEVTOOLS-COMPLETE-GUIDE.html" class="btn btn-secondary">
+                    📖 完整文档
+                </a>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2025 QCM Team. Version 0.5.0 | ai-skill-system 代码化执行引擎</p>
+        </footer>
+    </div>
+</body>
+</html>
